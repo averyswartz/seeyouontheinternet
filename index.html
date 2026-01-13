@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See You on the Internet</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="the #1 best-selling digital marketing guide for small business. A proven, frustration-free way to make your business stand out online.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.seeyouontheinternet.com">
+    <meta property="og:title" content="See You on the Internet">
+    <meta property="og:site_name" content="See You on the Internet">
+    <meta property="og:description" content="the #1 best-selling digital marketing guide for small business. A proven, frustration-free way to make your business stand out online.">
+    <meta property="og:image" content="https://www.seeyouontheinternet.com/images/See You on the Internet book.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.seeyouontheinternet.com">
+    <meta name="twitter:title" content="See You on the Internet">
+    <meta name="twitter:description" content="the #1 best-selling digital marketing guide for small business. A proven, frustration-free way to make your business stand out online.">
+    <meta name="twitter:image" content="https://www.seeyouontheinternet.com/images/See You on the Internet book.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.seeyouontheinternet.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--teal);
+            line-height: 1.6;
+        }
+
+        /* Color palette */
+        :root {
+            --teal: #005e75;
+            --cream: #fffbf0;
+            --yellow: #ffbf00;
+            --orange: #ea441f;
+            --peach: #fac2a8;
+        }
+
+        /* Sticky Navigation - appears on scroll */
+        .sticky-nav {
+            background-color: var(--yellow);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-nav.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-nav nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .sticky-nav nav a {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--teal);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--yellow);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--cream);
+            padding: 60px 20px 120px;
+            text-align: center;
+        }
+
+        .hero-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            margin-bottom: 150px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .hero-nav-left,
+        .hero-nav-right {
+            display: flex;
+            gap: 50px;
+        }
+
+        .hero-nav-left {
+            justify-content: flex-end;
+        }
+
+        .hero-nav-right {
+            justify-content: flex-start;
+        }
+
+        .hero-nav a {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 1.2;
+            text-align: center;
+            padding: 0 40px;
+        }
+
+        .hero-divider {
+            width: 220px;
+            height: 5px;
+            background-color: var(--yellow);
+            margin: 0 auto 60px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 700;
+            color: var(--teal);
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
+            max-width: 950px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .hero-description em {
+            font-style: italic;
+        }
+
+        .hero-divider-bottom {
+            width: 220px;
+            height: 5px;
+            background-color: var(--yellow);
+            margin: 60px auto 0;
+        }
+
+        /* About the Book Section */
+        .about-book {
+            background-color: var(--teal);
+            padding: 120px 20px 140px;
+        }
+
+        .about-book-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .book-image {
+            flex: 0 0 420px;
+            max-width: 420px;
+        }
+
+        .book-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 15px 40px rgba(0,0,0,0.3));
+        }
+
+        .book-description {
+            flex: 1;
+            min-width: 320px;
+            max-width: 520px;
+            color: white;
+        }
+
+        .book-description h2 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .book-description p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .book-description em {
+            font-style: italic;
+        }
+
+        .btn-order {
+            display: inline-block;
+            background-color: var(--yellow);
+            color: var(--teal);
+            padding: 22px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-order:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-order-orange {
+            background-color: var(--orange);
+            color: white;
+        }
+
+        /* What You'll Learn Section */
+        .what-youll-learn {
+            background-color: var(--cream);
+            padding: 100px 20px 120px;
+        }
+
+        .what-youll-learn-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .what-youll-learn h2 {
+            color: var(--orange);
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .learn-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 80px;
+        }
+
+        .learn-column {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .learn-item {
+            color: var(--teal);
+            font-size: 18px;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.6;
+        }
+
+        .learn-item .check {
+            color: var(--teal);
+            flex-shrink: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .learn-item.highlight {
+            font-weight: 600;
+        }
+
+        .what-youll-learn .btn-container {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--peach);
+            padding: 120px 20px 140px;
+        }
+
+        .testimonial-featured {
+            text-align: center;
+            max-width: 950px;
+            margin: 0 auto 120px;
+        }
+
+        .quote-mark {
+            color: var(--teal);
+            font-size: 50px;
+            margin-bottom: 15px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-featured blockquote {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--teal);
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-featured cite {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--teal);
+            font-style: italic;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 100px 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            text-align: center;
+        }
+
+        .testimonial .quote-mark {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial blockquote {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--teal);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .testimonial cite {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--teal);
+            font-style: italic;
+        }
+
+        /* About the Author Section */
+        .about-author {
+            background-color: var(--cream);
+            padding: 120px 20px 80px;
+        }
+
+        .author-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .author-bio {
+            flex: 0 0 420px;
+            background-color: var(--peach);
+            padding: 50px;
+            position: relative;
+            z-index: 2;
+            margin-top: 60px;
+        }
+
+        .author-bio h2 {
+            color: var(--teal);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .author-bio p {
+            color: var(--teal);
+            font-size: 15px;
+            line-height: 1.55;
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+
+        .author-bio a {
+            color: var(--teal);
+            text-decoration: underline;
+        }
+
+        .author-bio em {
+            font-style: italic;
+        }
+
+        .author-image {
+            flex: 0 0 550px;
+            position: relative;
+            z-index: 1;
+            margin-left: -60px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* As Seen In Section */
+        .as-seen-in {
+            background-color: var(--cream);
+            padding: 50px 20px 80px;
+        }
+
+        .as-seen-in-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .as-seen-in h3 {
+            color: var(--teal);
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0 35px;
+        }
+
+        .logos-grid img {
+            width: 120px;
+            height: auto;
+        }
+
+        /* Order Now Section */
+        .order-now {
+            background-color: var(--cream);
+            padding: 100px 20px 140px;
+            text-align: center;
+            border-top: 1px solid #e5e1d8;
+        }
+
+        .order-now h2 {
+            color: var(--orange);
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 70px;
+        }
+
+        .retailers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .retailer {
+            text-align: center;
+        }
+
+        .retailer img {
+            height: 80px;
+            width: auto;
+            margin-bottom: 20px;
+            max-width: 200px;
+        }
+
+        .retailer a {
+            display: block;
+            color: var(--orange);
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .retailer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .author-container {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+
+            .author-bio {
+                margin-top: -40px;
+                flex: none;
+                width: 90%;
+                max-width: 500px;
+            }
+
+            .author-image {
+                margin-left: 0;
+                flex: none;
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .learn-grid {
+                flex-direction: column;
+            }
+
+            .learn-column {
+                min-width: 100%;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .retailers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-nav {
+                display: block;
+                text-align: center;
+                margin-bottom: 80px;
+            }
+
+            .hero-nav-left,
+            .hero-nav-right {
+                display: none;
+            }
+
+            .logo {
+                padding: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .sticky-nav {
+                display: none;
+            }
+
+            .book-image {
+                flex: 0 0 320px;
+            }
+
+            .what-youll-learn h2 {
+                font-size: 36px;
+            }
+
+            .order-now h2 {
+                font-size: 36px;
+            }
+
+            .logos-grid img {
+                width: 110px;
+            }
+
+            .retailer img {
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .retailers-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 45px 20px;
+            }
+
+            .retailer img {
+                height: 50px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .what-youll-learn h2 {
+                font-size: 32px;
+            }
+
+            .sticky-nav nav {
+                gap: 15px 25px;
+                font-size: 14px;
+            }
+
+            .book-image {
+                flex: 0 0 280px;
+            }
+
+            .logos-grid {
+                justify-content: center;
+                gap: 15px 30px;
+            }
+
+            .logos-grid img {
+                width: 80px;
+            }
+
+            .testimonial blockquote {
+                font-size: 18px;
+            }
+
+            .testimonial-featured blockquote {
+                font-size: 22px;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#book-section">about the book</a>
+        <a href="#what-youll-learn-section">what you'll learn</a>
+        <a href="#what-theyre-saying-section">what they're saying</a>
+        <a href="#author-section">about the author</a>
+        <a href="#order-now-section">order now</a>
+    </div>
+
+    <!-- Sticky Navigation - appears on scroll -->
+    <div class="sticky-nav" id="stickyNav">
+        <nav>
+            <a href="#book-section">about the book</a>
+            <a href="#what-youll-learn-section">what you'll learn</a>
+            <a href="#what-theyre-saying-section">what they're saying</a>
+            <a href="#author-section">about the author</a>
+            <a href="#order-now-section">order now</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-nav">
+            <div class="hero-nav-left">
+                <a href="#book-section">about the book</a>
+                <a href="#what-youll-learn-section">what you'll learn</a>
+            </div>
+            <div class="logo">see you on the<br>internet</div>
+            <div class="hero-nav-right">
+                <a href="#what-theyre-saying-section">what they're saying</a>
+                <a href="#author-section">about the author</a>
+                <a href="#order-now-section">order now</a>
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <h1>the #1 best-selling digital marketing guide for small business</h1>
+        <p class="hero-description">
+            <em>See You on the Internet</em> is a frustration-free resource for building a website, selling online, search engine optimization, social media, email marketing, and online advertising... that you'll actually enjoy reading.
+        </p>
+        <div class="hero-divider-bottom"></div>
+    </section>
+
+    <!-- About the Book Section -->
+    <section class="about-book" id="book-section">
+        <div class="about-book-container">
+            <div class="book-image">
+                <img src="images/See You on the Internet book.png" alt="See You on the Internet book cover">
+            </div>
+            <div class="book-description">
+                <h2>The proven, frustration-free way to make your business stand out online, from one of North America's leaders on digital marketing for small businesses</h2>
+                <p>Today, you can launch a website, create social media feeds, and get products and services to market on some of the world's most powerful sales platforms in a matter of hours. But marketing your small business effectively takes some careful thought. In <em>See You on the Internet</em>, Avery Swartz, one of North America's top tech leaders, gives you a failsafe framework to plan and execute a brilliant digital marketing strategy with confidence. And you don't need a technical background to follow it. In five simple steps, you will learn to build your brand, increase your customers, and generate more revenue.</p>
+                <a href="#order-now-section" class="btn-order">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn Section -->
+    <section class="what-youll-learn" id="what-youll-learn-section">
+        <div class="what-youll-learn-container">
+            <h2>what you'll learn</h2>
+            <div class="learn-grid">
+                <div class="learn-column">
+                    <div class="learn-item"><span class="check">✓</span> How to approach digital marketing using the same framework Avery has used with hundreds of businesses just like yours</div>
+                    <div class="learn-item"><span class="check">✓</span> How to register a domain name that's perfect for your business</div>
+                    <div class="learn-item"><span class="check">✓</span> How to set up a professional email address that matches your business name</div>
+                    <div class="learn-item"><span class="check">✓</span> How to hire a website professional and tips for getting the best work possible from them</div>
+                    <div class="learn-item"><span class="check">✓</span> How to make your own website</div>
+                    <div class="learn-item"><span class="check">✓</span> How to sell online, and your options for ecommerce</div>
+                    <div class="learn-item"><span class="check">✓</span> How to make your website mobile-friendly, fast, and accessible</div>
+                    <div class="learn-item"><span class="check">✓</span> How to lock down your business's tech so it's private, secure, and safe</div>
+                    <div class="learn-item"><span class="check">✓</span> How to write content for your website and social media that will appeal to your target customer</div>
+                </div>
+                <div class="learn-column">
+                    <div class="learn-item"><span class="check">✓</span> How Google works, and how to optimize your business for search engines (SEO)</div>
+                    <div class="learn-item"><span class="check">✓</span> How to choose which social media channels are right for you</div>
+                    <div class="learn-item"><span class="check">✓</span> How to make the most of your time and energy investment in social media</div>
+                    <div class="learn-item"><span class="check">✓</span> How to build and execute an email marketing strategy that your customers will love</div>
+                    <div class="learn-item"><span class="check">✓</span> How to decide if online advertising is right for you, and what platforms are available for advertising online</div>
+                    <div class="learn-item"><span class="check">✓</span> How to get all of your customer data out of your head and into a streamlined system</div>
+                    <div class="learn-item"><span class="check">✓</span> How to measure all of your digital marketing efforts so you know what's working, and what you can cut</div>
+                    <div class="learn-item highlight"><span class="check">✓</span> How to confidently grow your business online, so you can get back to doing what you love and stop wasting time and money</div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a href="#order-now-section" class="btn-order btn-order-orange">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="what-theyre-saying-section">
+        <!-- Featured Testimonial -->
+        <div class="testimonial-featured">
+            <div class="quote-mark">"</div>
+            <blockquote>One of the most comprehensive marketing guides to making your business known online that I have read. Highly recommended.</blockquote>
+            <cite>— Bruce Croxon, tech investor at Round13 Capital & former Dragon on CBC Dragon's Den</cite>
+        </div>
+
+        <!-- Grid of Testimonials -->
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="quote-mark">"</div>
+                <blockquote>I've read a lot of business books, but this one takes the cake. See You on the Internet is 200 pages of pure gold filled with actionable steps I can implement in my business - today. It's an absolute must-read.</blockquote>
+                <cite>— Rachel Kelly, founder, Make Lemonade</cite>
+            </div>
+            <div class="testimonial">
+                <div class="quote-mark">"</div>
+                <blockquote>Understanding how digital marketing and media works is now more critical than ever before. In this book, Avery Swartz cuts through the acronyms and technical jargon, takes you by the hand and guides you through the key concepts in an easy to understand and accessible manner.</blockquote>
+                <cite>— Allan Dib, global bestselling author of The 1-Page Marketing Plan</cite>
+            </div>
+            <div class="testimonial">
+                <div class="quote-mark">"</div>
+                <blockquote>I loved that reading the book felt like sitting down with Avery in person and getting hand-held through the process. This book and its resources are exactly what entrepreneurs need to know about digital marketing, all in one accessible and practical place.</blockquote>
+                <cite>— Paulina Cameron, CEO, Forum for Women Entrepreneurs</cite>
+            </div>
+            <div class="testimonial">
+                <div class="quote-mark">"</div>
+                <blockquote>A fun and accessible approach to digital marketing. Whether you're a complete beginner or years into running your own business, See you on the Internet uncovers the foundations of digital marketing that will grow with you and your business even as the technology evolves.</blockquote>
+                <cite>— Melissa Sariffodeen, co-founder and CEO, Canada Learning Code</cite>
+            </div>
+            <div class="testimonial">
+                <div class="quote-mark">"</div>
+                <blockquote>This is the book I wish every one of my clients (business owners) would read. It's full of easy-to-digest, practical information that situates the reader not just in what to do with their digital marketing, but also in how to think strategically about what they are doing. The conversational tone, real-world advice and simple exercises make See You on the Internet an invaluable tool for every entrepreneur.</blockquote>
+                <cite>— Danielle Botterell, principal, Spark Consulting</cite>
+            </div>
+            <div class="testimonial">
+                <div class="quote-mark">"</div>
+                <blockquote>I have run global marketing for some of the biggest and brightest startups. The complex landscape of digital marketing can make it hard to know where to start. See You on the Internet is a practical guide that steps you through a custom plan that's right for your business.</blockquote>
+                <cite>— Melissa Nightingale, all around badass</cite>
+            </div>
+        </div>
+
+        <!-- Final Featured Testimonial -->
+        <div class="testimonial-featured" style="margin-top: 120px; margin-bottom: 0;">
+            <div class="quote-mark">"</div>
+            <blockquote>Your one-stop digital marketing shop! Easy to digest and practical AF. I wish a guide like this existed when I started my business.</blockquote>
+            <cite>— Sarah Vermunt, Careergasm founder & bestselling author of Careergasm and Career Rookie</cite>
+        </div>
+    </section>
+
+    <!-- About the Author Section -->
+    <section class="about-author" id="author-section">
+        <div class="author-container">
+            <div class="author-bio">
+                <h2>about the author</h2>
+                <p>Avery Swartz is the founder and CEO of <a href="https://camptech.ca" target="_blank">Camp Tech</a>, the tech workshop company for non-technical people. She was ranked number 5 on <em>Search Engine Journal</em>'s Top 50 Women in Marketing list. Avery is the resident tech expert on CTV <em>Your Morning</em> and has contributed to <em>The Globe and Mail</em>, <em>Chatelaine</em>, and <em>Today's Parent</em>. Avery hosts the <em>A.I. Meets World</em> podcast from Microsoft and the Globe and Mail Content Studio, and has been a Professor at both Ryerson University and Humber College. She lives in Toronto.</p>
+                <p>Learn more about Avery Swartz at<br><a href="https://averyswartz.com" target="_blank">https://averyswartz.com</a></p>
+            </div>
+            <div class="author-image">
+                <img src="images/AverySwartzHeadshotAllRightsRese.jpg" alt="Avery Swartz">
+            </div>
+        </div>
+    </section>
+
+    <!-- As Seen In Section -->
+    <section class="as-seen-in">
+        <div class="as-seen-in-container">
+            <h3>AS SEEN IN:</h3>
+            <div class="logos-grid">
+                <img src="images/CTV350.png" alt="CTV">
+                <img src="images/Globe350.png" alt="The Globe and Mail">
+                <img src="images/Chatz350.png" alt="Chatelaine">
+                <img src="images/City350.png" alt="CityTV">
+                <img src="images/CBC350.png" alt="CBC">
+                <img src="images/TP350.png" alt="Today's Parent">
+                <img src="images/Global350.png" alt="Global">
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Now Section -->
+    <section class="order-now" id="order-now-section">
+        <h2>order now</h2>
+        <div class="retailers-grid">
+            <div class="retailer">
+                <img src="images/Amazon.ca logo.png" alt="Amazon.ca">
+                <a href="https://www.amazon.ca/See-You-Internet-Building-Marketing/dp/1989603084" target="_blank">Buy on Amazon.ca</a>
+            </div>
+            <div class="retailer">
+                <img src="images/Indigo logo.png" alt="Indigo">
+                <a href="https://www.chapters.indigo.ca/en-ca/books/see-you-on-the-internet/9781989603086-item.html" target="_blank">Buy at Indigo</a>
+            </div>
+            <div class="retailer">
+                <img src="images/Bookshop.png" alt="Bookshop">
+                <a href="https://bookshop.org/books/see-you-on-the-internet-building-your-small-business-with-digital-marketing/9781989603086" target="_blank">Buy from Bookshop</a>
+            </div>
+            <div class="retailer">
+                <img src="images/Amazon.com logo.png" alt="Amazon.com">
+                <a href="https://www.amazon.com/See-You-Internet-Building-Marketing/dp/1989603084/" target="_blank">Buy on Amazon.com</a>
+            </div>
+            <div class="retailer">
+                <img src="images/Kindle logo.png" alt="Kindle">
+                <a href="https://www.amazon.com/See-You-Internet-Building-Marketing-ebook/dp/B082PSXM58/" target="_blank">Buy Kindle eBook</a>
+            </div>
+            <div class="retailer">
+                <img src="images/Apple Books logo.png" alt="Apple Books">
+                <a href="https://books.apple.com/ca/book/see-you-on-internet-building-your-small-business-digital/id1491510039" target="_blank">Buy eBook on Apple Books</a>
+            </div>
+            <div class="retailer">
+                <img src="images/Kobo logo.png" alt="Kobo">
+                <a href="https://www.kobo.com/ca/en/ebook/see-you-on-the-internet-building-your-small-business-with-digital-marketing" target="_blank">Buy eBook on Kobo</a>
+            </div>
+            <div class="retailer">
+                <img src="images/AUDIBLE.png" alt="Audible">
+                <a href="https://www.audible.com/pd/See-You-on-the-Internet-Audiobook/B0872JSDD7" target="_blank">Download Audiobook from Audible</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Sticky navigation on scroll
+        const stickyNav = document.getElementById('stickyNav');
+        const hero = document.getElementById('hero');
+
+        window.addEventListener('scroll', () => {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            if (window.scrollY > heroBottom - 100) {
+                stickyNav.classList.add('visible');
+            } else {
+                stickyNav.classList.remove('visible');
+            }
+        });
+
+        // Mobile hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
